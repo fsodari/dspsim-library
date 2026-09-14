@@ -10,8 +10,6 @@ endif()
 # Simplest way of exporting symbols for windows.
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-
-
 # Set warning level
 if (MSVC)
     # warning level 4
@@ -24,10 +22,10 @@ endif()
 # Find dspsim package
 find_package(dspsim REQUIRED HINTS ${CMAKE_PREFIX_PATH}/dspsim/framework/cmake)
 
-# RPath
-# Set the RPATH to where dspsim/framework will be installed relative to this module.
-list(APPEND CMAKE_INSTALL_RPATH "$ORIGIN/../framework")
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+# # RPath
+# # Set the RPATH to where dspsim/framework will be installed relative to this module.
+# list(APPEND CMAKE_INSTALL_RPATH "$ORIGIN/../framework")
+# set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # Set project paths.
 # set(DSPSIM_LIBRARY_PKG_DIR ${CMAKE_SOURCE_DIR}/src/dspsim/library)

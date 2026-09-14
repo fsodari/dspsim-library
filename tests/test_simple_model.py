@@ -1,8 +1,17 @@
 from pathlib import Path
 
-from dspsim.library import SimpleModel
+import dspsim.library
+from dspsim.library import SimpleModel, set_global_context_factory
 
-from dspsim.framework import Clock, Context, Dff8, Dff32, Signal32
+import dspsim.framework
+from dspsim.framework import (
+    Clock,
+    Context,
+    Dff8,
+    Dff32,
+    Signal32,
+    get_global_context_factory,
+)
 
 
 def test_simple_model():
@@ -36,3 +45,6 @@ def test_simple_model():
         # print(f"a id: {a.id}, b id: {b.id}")
         for m in ctx.models:
             print(m)
+
+    # dspsim.framework.reset_global_context_factory()
+    # dspsim.library.reset_global_context_factory()

@@ -13,7 +13,7 @@ wheels = [
 
 [[package]]
 name = "dspsim"
-version = "0.5.0"
+version = "0.5.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jinja2" },
@@ -21,14 +21,15 @@ dependencies = [
     { name = "nanobind-backend" },
     { name = "numpy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/78/8c/6daf2eea8375d962aedd44000caebe5e520418ecb39540a21637f65d0bcf/dspsim-0.5.0.tar.gz", hash = "sha256:b655c357c579991a746cc2fd0482b9bdf951afd42eab95554abee5b770b0fc12", size = 64152, upload-time = "2026-09-14T03:32:07.343Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d0/65/32dfb7c6a20ad67eb75e0d74f137898725ba0939dd2c97ebd2d171531858/dspsim-0.5.2.tar.gz", hash = "sha256:f5ad3e657d8f54e8f6ddd12dcdcf69174ec572c15a9fcb4481f91f4404f13de3", size = 64555, upload-time = "2026-09-14T05:27:35.437Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/7d/8c8a144ed7f032b703f98faa446dd14534d57b6587e7b9d99375427c2889/dspsim-0.5.0-cp314-cp314-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b1b3a572b799221630a34dc8ce13e6c358fc4746d7e72c065d938179089bde63", size = 241809, upload-time = "2026-09-14T03:32:05.763Z" },
+    { url = "https://files.pythonhosted.org/packages/e3/f6/82a1c7002d7b222a3b72b36af4ff70b47146e029780a183fb014fc243d6e/dspsim-0.5.2-cp314-cp314-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:92e7439612ead31697d191a19ab18c6191ca0cb15626f005a7de0b945d43ccd8", size = 435884, upload-time = "2026-09-14T05:27:32.569Z" },
+    { url = "https://files.pythonhosted.org/packages/59/70/2d12c68b3f3e9156849d4b2be7a4ef48771d6029131cb52c81a913a1efdd/dspsim-0.5.2-cp314-cp314-win_amd64.whl", hash = "sha256:1746f16f9dd6c2f4f7f9fe8a27497f8b2cef4fa65587615c4666686f811ce9a6", size = 903656, upload-time = "2026-09-14T05:27:34.123Z" },
 ]
 
 [[package]]
 name = "dspsim-library"
-version = "0.0.1"
+version = "0.0.3"
 source = { editable = "." }
 dependencies = [
     { name = "dspsim" },
@@ -46,11 +47,11 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "dspsim", specifier = ">=0.5.0" }]
+requires-dist = [{ name = "dspsim", specifier = ">=0.5.2" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "dspsim", specifier = ">=0.5.0" },
+    { name = "dspsim", specifier = ">=0.5.2" },
     { name = "nanobind", specifier = ">=3.0.1" },
     { name = "nanobind-backend", specifier = ">=1.0.0" },
     { name = "pytest", specifier = ">=9.1.1" },
