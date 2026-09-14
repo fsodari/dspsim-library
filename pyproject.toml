@@ -116,8 +116,13 @@ test-command = "pytest {project}/tests"
 test-requires = "pytest verilator-dspsim"
 build-verbosity = 1
 
-# Skip repair step only on Windows. Does this work?
-repair-wheel-command = ""
+# Shared libraries are crazy.
+repair-wheel-command = "pip install dspsim && LD_LIBRARY_PATH=$(python -c 'import os, dspsim.framework; print(os.path.dirname(dspsim.framework.__file__))') auditwheel repair -w {dest_dir} {wheel}"
+
+# [tool.cibuildwheel.linux]
+# before-all = "pip install dspsim"
+# # Force the repair tool to look inside the other package's site-packages folder
+# environment = { LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:$(python -c 'import os, dspsim.framework; print(os.path.dirname(dspsim.framework.__file__))')" }
 
 ###
 ###
