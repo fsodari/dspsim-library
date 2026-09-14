@@ -1,0 +1,125 @@
+[build-system]
+requires = [
+    "scikit-build-core>=1.0.3",
+    "dspsim>=0.5.0",
+    "verilator-dspsim>=5.52.0"
+]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "dspsim-library"
+version = "0.0.1"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Frank" }
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: C++",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.14"
+dependencies = [
+    "dspsim>=0.5.0"
+]
+
+# [project.optional-dependencies]
+# verilator = [
+#     "verilator-dspsim>=5.52.0",
+# ]
+
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+build-dir = "build"
+wheel.packages = ["src/dspsim"]
+# wheel.install-dir = "dspsim/library"
+
+[tool.uv]
+cache-keys = [
+    { file = "pyproject.toml" },
+    { file = "src/**/*.{h,c,hpp,cpp,v,sv}" },
+    { file = "CMakeLists.txt" },
+    {file = "src/CMakeLists.txt"}
+]
+
+[dependency-groups]
+dev = [
+    "nanobind>=3.0.1",
+    "nanobind-backend>=1.0.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.5",
+    "scikit-build-core>=1.0.3",
+    "verilator-dspsim>=5.52.0",
+    "dspsim>=0.5.0"
+]
+
+
+
+
+# Generate binding code for modules.
+
+#---------------------------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------#
+
+# dspsim tool configuration for the library module.
+[tool.dspsim]
+name = "_library"
+# Use all sources in the dspsim/hdl directory.
+sources = ["src/dspsim/library/hdl/*.sv", "src/dspsim/library/hdl/*.v"]
+exclude_sources = ["src/dspsim/library/hdl/HellModel.sv"]
+# sources = ["src/dspsim/hdl/SimpleModel.sv"]
+include_dirs = ["src/dspsim/library/hdl"]
+# Can use fst on linux.
+trace = "vcd"
+# parameters = { DW = 24, CFGAW = 32, CFGDW = 32, COEFW = 18, COEFQ = 16 }
+
+# Global parameters applied to all modules.
+[tool.dspsim.parameters]
+DW = 24
+CFGAW = 32
+CFGDW = 32
+COEFW = 18
+COEFQ = 16
+
+[tool.dspsim.models]
+SimpleModel = {source = "SimpleModel.sv", parameters = { DW = 32 } }
+SimpleModel16 = {source = "SimpleModel.sv", parameters = { DW = 16 } }
+
+[tool.dspsim.models.SimpleModel8]
+source = "SimpleModel.sv"
+parameters = { DW = 8 }
+trace = "None"
+
+#---------------------------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------#
+
+###
+### Cibuildwheel config
+###
+[tool.cibuildwheel]
+# This version seems to work best. Need to use gcc13 for local builds.
+# manylinux-x86_64-image = "manylinux_2_28"
+# 64 bit builds
+archs = ["auto64"]
+# Python3.12+. Older versions should work?
+build = ["cp314-*"]
+# Don't build arm. Use only > cp39, no PyPy. Not using musl anywhere so no musl (it works though?)
+skip = ["*cp314t*","*-win_arm64", "*musllinux*"]
+
+# Run pytest to ensure that the package was build correctly
+test-command = "pytest {project}/tests"
+test-requires = "pytest verilator-dspsim"
+build-verbosity = 1
+
+# Skip repair step only on Windows. Does this work?
+[tool.cibuildwheel.windows]
+repair-wheel-command = ""
+
+###
+###
+###

@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheelhouse
+*.egg-info
+.pytest_cache
+
+# Virtual environment and build directories
+.venv
+build
+
+#
+.env
+.vscode
+*.code-workspace
+
+obj_dir/
+traces/
