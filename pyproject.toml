@@ -117,7 +117,6 @@ test-requires = "pytest verilator-dspsim"
 build-verbosity = 1
 
 # Skip repair step only on Windows. Does this work?
-[tool.cibuildwheel.windows]
 repair-wheel-command = ""
 
 ###
