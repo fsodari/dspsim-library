@@ -8,7 +8,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "dspsim-library"
-version = "0.0.1"
+version = "0.0.2"
 description = "Add your description here"
 readme = "README.md"
 authors = [
