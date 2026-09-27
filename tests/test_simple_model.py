@@ -1,17 +1,14 @@
 from pathlib import Path
 
-import dspsim.library
-from dspsim.library import SimpleModel, set_global_context_factory
-
-import dspsim.framework
 from dspsim.framework import (
     Clock,
     Context,
     Dff8,
     Dff32,
     Signal32,
-    get_global_context_factory,
 )
+
+from dspsim.library import SimpleModel
 
 
 def test_simple_model():

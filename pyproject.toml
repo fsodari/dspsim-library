@@ -73,10 +73,10 @@ dev = [
 [tool.dspsim]
 name = "_library"
 # Use all sources in the dspsim/hdl directory.
-sources = ["src/dspsim/library/hdl/*.sv", "src/dspsim/library/hdl/*.v"]
-exclude_sources = ["src/dspsim/library/hdl/HellModel.sv"]
+sources = ["src/dspsim-library/hdl/*.sv", "src/dspsim-library/hdl/*.v"]
+exclude_sources = ["src/dspsim-library/hdl/HellModel.sv"]
 # sources = ["src/dspsim/hdl/SimpleModel.sv"]
-include_dirs = ["src/dspsim/library/hdl"]
+include_dirs = ["src/dspsim-library/hdl"]
 # Can use fst on linux.
 trace = "platform"
 # parameters = { DW = 24, CFGAW = 32, CFGDW = 32, COEFW = 18, COEFQ = 16 }
