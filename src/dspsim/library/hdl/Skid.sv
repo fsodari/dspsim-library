@@ -14,6 +14,7 @@ module Skid #(
 
   logic [DW-1:0] skid_tdata = 0;
   logic skid_tvalid = 0;
+  logic foo;
 
   // Can accept data whenever the skid buffer is not full.
   assign s_axis_tready = !skid_tvalid;

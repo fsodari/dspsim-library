@@ -28,8 +28,8 @@ dependencies = [
     "dspsim>=0.5.2"
 ]
 
-# [tool.uv.sources]
-# dspsim = {path="../dspsim", editable=false}
+[tool.uv.sources]
+dspsim = {path="../dspsim", editable=false}
 
 # [project.optional-dependencies]
 # verilator = [
