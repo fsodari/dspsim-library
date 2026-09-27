@@ -1,18 +1,18 @@
 [build-system]
 requires = [
     "scikit-build-core>=1.0.3",
-    "dspsim>=0.5.2",
+    "dspsim>=0.5.4",
     "verilator-dspsim>=5.52.0"
 ]
 build-backend = "scikit_build_core.build"
 
 [project]
 name = "dspsim-library"
-version = "0.0.3"
-description = "Add your description here"
+version = "0.0.4"
+description = "library of HDL modules to be used with dspsim."
 readme = "README.md"
 authors = [
-    { name = "Frank" }
+    { name = "Frank Sodari" }
 ]
 classifiers = [
     "Intended Audience :: Developers",
@@ -25,11 +25,11 @@ classifiers = [
 ]
 requires-python = ">=3.14"
 dependencies = [
-    "dspsim>=0.5.2"
+    "dspsim>=0.5.4"
 ]
 
-# [tool.uv.sources]
-# dspsim = {path="../dspsim", editable=false}
+[tool.uv.sources]
+dspsim = {path="../dspsim", editable=false}
 
 # [project.optional-dependencies]
 # verilator = [
@@ -39,7 +39,7 @@ dependencies = [
 [tool.scikit-build]
 minimum-version = "build-system.requires"
 build-dir = "build"
-wheel.packages = ["src/dspsim"]
+wheel.packages = ["src/dspsim-library"]
 # wheel.install-dir = "dspsim/library"
 
 [tool.uv]
@@ -78,7 +78,7 @@ exclude_sources = ["src/dspsim/library/hdl/HellModel.sv"]
 # sources = ["src/dspsim/hdl/SimpleModel.sv"]
 include_dirs = ["src/dspsim/library/hdl"]
 # Can use fst on linux.
-trace = "vcd"
+trace = "platform"
 # parameters = { DW = 24, CFGAW = 32, CFGDW = 32, COEFW = 18, COEFQ = 16 }
 
 # Global parameters applied to all modules.
