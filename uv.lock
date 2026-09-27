@@ -58,7 +58,7 @@ dev = [
 
 [[package]]
 name = "dspsim-library"
-version = "0.0.4"
+version = "0.0.5"
 source = { editable = "." }
 dependencies = [
     { name = "dspsim" },
@@ -81,7 +81,7 @@ requires-dist = [{ name = "dspsim", directory = "../dspsim" }]
 [package.metadata.requires-dev]
 dev = [
     { name = "dspsim", directory = "../dspsim" },
-    { name = "nanobind", specifier = ">=3.0.1" },
+    { name = "nanobind", specifier = ">=3.1.0" },
     { name = "nanobind-backend", specifier = ">=1.0.0" },
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "ruff", specifier = ">=0.16.5" },

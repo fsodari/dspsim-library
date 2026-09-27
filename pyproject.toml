@@ -8,7 +8,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "dspsim-library"
-version = "0.0.4"
+version = "0.0.5"
 description = "library of HDL modules to be used with dspsim."
 readme = "README.md"
 authors = [
@@ -39,7 +39,7 @@ dspsim = {path="../dspsim", editable=false}
 [tool.scikit-build]
 minimum-version = "build-system.requires"
 build-dir = "build"
-wheel.packages = ["src/dspsim-library"]
+wheel.packages = ["src/dspsim_library"]
 # wheel.install-dir = "dspsim/library"
 
 [tool.uv]
@@ -52,7 +52,7 @@ cache-keys = [
 
 [dependency-groups]
 dev = [
-    "nanobind>=3.0.1",
+    "nanobind>=3.1.0",
     "nanobind-backend>=1.0.0",
     "pytest>=9.1.1",
     "ruff>=0.16.5",
@@ -76,7 +76,7 @@ name = "_library"
 sources = ["src/dspsim-library/hdl/*.sv", "src/dspsim-library/hdl/*.v"]
 exclude_sources = ["src/dspsim-library/hdl/HellModel.sv"]
 # sources = ["src/dspsim/hdl/SimpleModel.sv"]
-include_dirs = ["src/dspsim-library/hdl"]
+include_dirs = ["src/dspsim_library/hdl"]
 # Can use fst on linux.
 trace = "platform"
 # parameters = { DW = 24, CFGAW = 32, CFGDW = 32, COEFW = 18, COEFQ = 16 }
